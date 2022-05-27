@@ -230,7 +230,8 @@ name_set['blooper_set'] = [
     'Hangover',
     'Gurgle Mouthwash',
     'Cogwheel Broken',
-    'Antelope'
+    'Antelope',
+    'Tilde'
   ];
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
