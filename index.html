@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="css/cutestrap.css" / />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- The markov code comes from DonJon https://donjon.bin.sh/code/name/ -->
+    <!-- For more sensible names with arguably better data sets, check out https://donjon.bin.sh/name/markov.html -->
+    <script src="name_generator.js"></script>
+    <script src="blooper_set.js"></script>
+    <script src="rude_set.js"></script>
+
+    <script type="text/javascript">
+      $(document).ready(function(){
+
+          function gengen(set)
+          {
+            nList = name_list(set,10);
+            $("#genList").text("");
+            for (i = 0; i < nList.length; i++)
+            {
+               $("#genList").append(
+               "<li>" +
+               nList[i] +
+               "</li>");
+             }
+          }
+          //Generate once at page load
+          gengen('blooper_set');
+
+          //Event Binding
+          $("#generateName").click(function(){
+            gengen('blooper_set');
+          });
+
+          $("#rudeName").click(function(){
+            gengen('rude_set');
+          });
+      });
+
+    </script>
+  </head>
+  <body>
+    <header class="wrapper -thin">
+      <h1 class="title">Blooper's Bad Fantasy Name Generator</h1>
+    </header>
+    <section class="wrapper -thin ta-center">
+      <div class="ta-center grid">
+      <div id="generateName" class="button -outlined">New Names</div>
+      <div id="rudeName" class="button -outlined">Rude Tales</div>
+
+      </div>
+      <hr />
+
+      <section class="grid">
+        <section class="column ta-left">
+        <ul id="genList">
+        </ul>
+        </section>
+      </section>
+
+    <hr />
+    <section class="ta-left">
+
+    <p>
+      I wondered what would happen if I used my stupid and occasionally inapropriate NPC names as a <a href="blooper_set.js">data set</a> for a <a href="https://en.wikipedia.org/wiki/Markov_chain">markov chain</a>. And here we are. The <a href="https://donjon.bin.sh/code/name/">Markov code</a> is from <a href="https://donjon.bin.sh/">donjon</a>, who has many great generators for DMing.
+    </p>
+    <p>
+      While the names are often incoherent, voweless, or just uninteresting, I have also been pleased to discover some pretty funny and enjoyable names that I would never have thought of myself. Having silly jumping-off points is the real goal.
+      </p>
+    <p>
+      In addition to <em>Rude Tales of Magic</em>, I have to shout out <a href="https://www.blaseball.com"><em>Blaseball</em></a>, which might have the best name generator ever created. I have cribbed many of my NPC names right from Blaseball.
+      </p>
+    <p>
+      Out of Curiosity, I also created a source data <a href="rude_set.js">set</a> with the hilarious NPC names from my favorite D&D podcast, <a href="https://www.rudetalesofmagic.com/">Rude Tales of Magic</a>. (Thanks, <a href="https://rude-tales-of-magic.fandom.com/wiki/Rude_Tales_Of_Magic_Wiki">Wiki</a>). The generated names aren't great. <strong>Rude Tales</strong> names humor comes from their proximity to irreverent dictionary words or phrases, and scrambling them on a morpheme level disconnects it. Still, funny name-like words do occasionally pop out of the generator.
+      </p>
+      <p>
+        By <a href ="http://hdyar.com">Hunter Dyar</a>. Hosted on Github Pages. Page created using <a href="https://www.cutestrap.com/">Cutestrap.</a>
+        </p>
+      </section>
+
+      <hr />
+  </section>
+
+  </body>
+</html>
