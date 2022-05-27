@@ -228,7 +228,9 @@ name_set['blooper_set'] = [
     'Sex Sexxxy',
     'Triple-X',
     'Hangover',
-    'Gurgle Mouthwash'
+    'Gurgle Mouthwash',
+    'Cogwheel Broken',
+    'Antelope'
   ];
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
