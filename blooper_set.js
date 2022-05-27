@@ -217,6 +217,18 @@ name_set['blooper_set'] = [
     'Nofinger Linger',
     'Pip Paddycake',
     'Bouncey Castle',
+    'Titanium Alloy',
+    'Toodaloo Byebye',
+    'Flight Fearless',
+    'Action Hearthrob',
+    'Ratrap',
+    'Furknot',
+    'Wartime Peace',
+    'Ovary Anther',
+    'Sex Sexxxy',
+    'Triple-X',
+    'Hangover',
+    'Gurgle Mouthwash'
   ];
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head>
+  <head><title>Blooper's Bad Fantasy Name Generator</title>
     <link rel="stylesheet" href="css/cutestrap.css" / />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -13,8 +13,14 @@
     <script type="text/javascript">
       $(document).ready(function(){
 
+        function oneFromSet(set)
+        {
+          return name_set[set][Math.floor(Math.random() * name_set[set].length)];
+        }
+
           function gengen(set)
           {
+            //10 random markovs
             nList = name_list(set,10);
             $("#genList").text("");
             for (i = 0; i < nList.length; i++)
@@ -24,6 +30,8 @@
                nList[i] +
                "</li>");
              }
+             //one random from set
+             $("#singleRandom").text(oneFromSet(set));
           }
           //Generate once at page load
           gengen('blooper_set');
@@ -43,28 +51,45 @@
   <body>
     <header class="wrapper -thin ta-center">
       <h1 class="title">Blooper's Bad Fantasy Name Generator</h1>
+      <p><em>
+        This page may occasionally display content some viewers may consider innapropriate.
+        </em>
+        </p>
     </header>
     <section class="wrapper -thin ta-center">
       <div class="ta-center grid">
-      <div id="generateName" class="button -outlined">New Names</div>
-      <div id="rudeName" class="button -outlined">Rude Tales</div>
+      <div id="generateName" class="button -outlined">More Bad Names</div>
+      <div id="rudeName" class="button -outlined">Rude Names of Magic</div>
 
       </div>
       <hr />
 
+<!-- list of markov names -->
       <section class="grid">
         <section class="column ta-left">
         <ul id="genList">
         </ul>
         </section>
       </section>
-
+      <hr / />
+<!--one random name from set-->
+      <section class="grid">
+        <section class="column ta-left">
+        <p><strong>Also Consider: </strong></p>
+        </section>
+        <section class="column ta-left">
+        <p id="singleRandom"></p>
+        </section>
+      </section>
     <hr />
     <section class="ta-left">
 
     <p>
       I wondered what would happen if I used my stupid and occasionally inapropriate NPC names as a <a href="blooper_set.js">data set</a> for a <a href="https://en.wikipedia.org/wiki/Markov_chain">markov chain</a>. And here we are. The <a href="https://donjon.bin.sh/code/name/">Markov code</a> is from <a href="https://donjon.bin.sh/">donjon</a>, who has many great generators for DMing.
     </p>
+    <p>
+      The 'Also Consider' section pulls a random name from the source data set. It's not generated, just randomly picked.
+      </p>
     <p>
       While the names are often incoherent, voweless, or just uninteresting, I have also been pleased to discover some pretty funny and enjoyable names that I would never have thought of myself. Having silly jumping-off points is the real goal.
       </p>
