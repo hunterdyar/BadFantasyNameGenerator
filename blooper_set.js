@@ -231,7 +231,15 @@ name_set.blooper_set = [
   'Gurgle Mouthwash',
   'Cogwheel Broken',
   'Antelope',
-  'Tilde'
+  'Tilde',
+  'Malgorzata',
+  'Spaghetti Slurp',
+  'Noodle Sauce',
+  'Butter Lettuce',
+  'Woodstock Remembering',
+  'Funky Wombat',
+  'Cryptkeeper',
+  'South Dakota'
 ]
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

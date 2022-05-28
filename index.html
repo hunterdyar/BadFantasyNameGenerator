@@ -3,7 +3,6 @@
   <head><title>Blooper's Bad Fantasy Name Generator</title>
     <link rel="stylesheet" href="css/cutestrap.css" / />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!-- The markov code comes from DonJon https://donjon.bin.sh/code/name/ -->
     <!-- For more sensible names with arguably better data sets, check out https://donjon.bin.sh/name/markov.html -->
     <script src="name_generator.js"></script>
@@ -12,54 +11,36 @@
     <script src="pokemon.js"></script>
 
     <script type="text/javascript">
-      $(document).ready(function(){
 
+        //Grabs a random item from the list of source data (set), capitalizes it, and returns it.
         function oneFromSet(set)
         {
-          return name_set[set][Math.floor(Math.random() * name_set[set].length)];
+          var single = name_set[set][Math.floor(Math.random() * name_set[set].length)];
+          return single.charAt(0).toUpperCase() + single.slice(1);
         }
 
-          function gengen(set)
+        //populates the list with 10 items.
+        function gengen(set)
+        {
+          //10 random markovs
+          nList = name_list(set,10);
+          //Create string list of the html of the random names.
+          var listText = "";
+          for (i = 0; i < nList.length; i++)
           {
-            //10 random markovs
-            nList = name_list(set,10);
-            $("#genList").text("");
-            for (i = 0; i < nList.length; i++)
-            {
-              var n = nList[i];
-              n = n.charAt(0).toUpperCase() + n.slice(1);
-               $("#genList").append(
-               "<li>" +
-               n +
-               "</li>");
-             }
-             //one random from set
-             $("#singleRandom").text(function()
-             {
-                var n = oneFromSet(set);
-                return n.charAt(0).toUpperCase() + n.slice(1);
-             });
-
-          }
-          //Generate once at page load
-          gengen('blooper_set');
-
-          //Event Binding
-          $("#generateName").click(function(){
-            gengen('blooper_set');
-          });
-
-          $("#rudeName").click(function(){
-            gengen('rude_set');
-          });
-          $("#pokeName").click(function(){
-            gengen('pokemon');
-          });
-      });
+            var n = nList[i];
+            n = n.charAt(0).toUpperCase() + n.slice(1);
+             listText = listText+"<li>"+n+"</li>";
+           }
+           //
+           document.getElementById("genList").innerHTML = listText;
+           //one random from set for 'also consider' section
+           document.getElementById("singleRandom").innerHTML = oneFromSet(set);
+        }
 
     </script>
   </head>
-  <body>
+  <body onload="gengen('blooper_set')">
     <header class="wrapper -thin ta-center">
       <h1 class="title">Blooper's Bad Fantasy Name Generator</h1>
       <p class="fs-small"><em>
@@ -69,9 +50,9 @@
     </header>
     <section class="wrapper -thin ta-center">
       <div class="ta-center grid">
-      <div id="generateName" class="button -outlined">More Bad Names</div>
-      <div id="rudeName" class="button -outlined">Rude Names of Magic</div>
-      <div id="pokeName" class="button -outlined">Bad Pokénames</div>
+      <div id="generateName" class="button -outlined" onclick="gengen('blooper_set')">More Bad Names</div>
+      <div id="rudeName" class="button -outlined" onclick="gengen('rude_set')">Rude Names of Magic</div>
+      <div id="pokeName" class="button -outlined" onclick="gengen('pokemon')">Bad Pokénames</div>
       </div>
       <hr />
 
