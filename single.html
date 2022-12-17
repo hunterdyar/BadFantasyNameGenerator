@@ -1,0 +1,15 @@
+<html>
+<body>
+  <script src="name_generator.js"></script>
+  <script src="blooper_set.js"></script>
+    <script type="text/javascript">
+      function gen(set)
+      {
+        //10 random markovs
+        nList = name_list(set,1);
+        document.querySelector('html').innerText = nList[0];
+       }
+       gen('blooper_set');
+    </script>
+</body>
+</html>

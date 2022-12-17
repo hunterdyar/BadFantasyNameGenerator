@@ -239,7 +239,11 @@ name_set.blooper_set = [
   'Woodstock Remembering',
   'Funky Wombat',
   'Cryptkeeper',
-  'South Dakota'
+  'South Dakota',
+  'Canada Maple',
+  'Avacadia Pit',
+  'Donut Hole',
+  'Dazerin'
 ]
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
